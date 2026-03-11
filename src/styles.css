@@ -446,6 +446,10 @@ h6,
   width: 350px;
 }
 
+.list-search {
+  max-width: 320px;
+}
+
 .search-wrapper i {
   position: absolute;
   left: 1.25rem;
@@ -670,4 +674,106 @@ h6,
   opacity: 0.4;
   display: inline-block;
   animation: float 4s ease-in-out infinite;
+}
+/* Mobile & Tablet Responsive Styles */
+@media (max-width: 991px) {
+  body {
+    overflow-y: auto;
+  }
+  .dashboard-container {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: block;
+  }
+  .main-content {
+    height: auto;
+    overflow: visible;
+  }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 1050;
+    border-radius: 0;
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .sidebar-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .top-navbar {
+    padding: 0 1rem;
+    height: 70px;
+  }
+  .content-wrapper {
+    padding: 0 1rem 3rem 1rem;
+    overflow-y: visible;
+  }
+  .menu-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+  .header-actions {
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .theme-toggle, .notif-toggle {
+    font-size: 1rem;
+  }
+  .user-profile img, .avatar-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .user-profile {
+    gap: 0;
+  }
+  .welcome-banner {
+    padding: 1.5rem;
+  }
+  .welcome-text h2 {
+    font-size: 1.5rem;
+  }
+  .stat-card {
+    padding: 1rem;
+  }
+  .stat-info h4 {
+    font-size: 1.4rem;
+  }
+  .table-container {
+    padding: 1rem !important;
+  }
+  .table-title {
+    font-size: 1.1rem;
+  }
+  .search-wrapper {
+    width: 100%;
+    max-width: 100% !important;
+  }
+  .pagination-custom {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+  }
 }

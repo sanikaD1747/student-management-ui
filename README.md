@@ -29,8 +29,8 @@ Follow these steps to set up the project on your local machine:
 
 1. **Clone the Repository:**
    ```bash
-   git clone <your-repository-url>
-   cd student-management-ui
+   git clone https://github.com/sanikaD1747/student-management-ui.git
+    cd student-management-ui
    ```
 
 2. **Install Node.js & Angular CLI:**
@@ -94,3 +94,10 @@ student-management-ui/
 * **Component Architecture:** Divided logical boundaries into `student-list` and `student-form` relying on the parent dashboard frame inside `app`.
 * **Services & State:** Centralized logical manipulation to `student.service.ts` mimicking an API response lifecycle through Angular's Observables.
 * **Forms & Validation:** Used Reactive Forms for tight bindings and synchronous built-in validation checks (e.g., matching numeric input, correct email formats).
+## Live Demo
+
+The application is deployed and can be accessed online here:
+
+🔗 https://studentmanagemt.netlify.app/students
+
+Feel free to explore the dashboard, manage student records, and experience the full functionality of the application in real time.

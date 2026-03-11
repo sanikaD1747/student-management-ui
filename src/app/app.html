@@ -1,20 +1,23 @@
 <div class="dashboard-container">
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" [class.show]="isSidebarOpen" (click)="closeSidebar()"></div>
+
   <!-- Sidebar -->
-  <div class="sidebar shadow-lg">
+  <div class="sidebar shadow-lg" [class.show]="isSidebarOpen">
     <div class="sidebar-brand">
       <i class="bi bi-rocket-takeoff-fill"></i> EduManage
     </div>
     <div class="sidebar-menu">
       <a routerLink="/students" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-        class="nav-item-custom">
+        class="nav-item-custom" (click)="closeSidebar()">
         <i class="bi bi-grid-1x2-fill"></i>
         <span>Dashboard</span>
       </a>
-      <a routerLink="/students/add" routerLinkActive="active" class="nav-item-custom">
+      <a routerLink="/students/add" routerLinkActive="active" class="nav-item-custom" (click)="closeSidebar()">
         <i class="bi bi-person-plus-fill"></i>
         <span>Register Student</span>
       </a>
-      <a routerLink="/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item-custom">
+      <a routerLink="/settings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item-custom" (click)="closeSidebar()">
         <i class="bi bi-gear-fill"></i>
         <span>Settings</span>
       </a>
@@ -25,9 +28,12 @@
   <div class="main-content">
     <!-- Top Navbar -->
     <div class="top-navbar">
-      <div>
-        <h4 class="brand-text m-0 fw-bold" style="color: var(--text-primary); letter-spacing: -0.5px;">Hello Manager! 👋
-        </h4>
+      <div class="d-flex align-items-center">
+        <button class="menu-toggle d-block d-lg-none me-3" (click)="toggleSidebar()">
+          <i class="bi bi-list"></i>
+        </button>
+        <h4 class="brand-text m-0 fw-bold d-none d-sm-block" style="color: var(--text-primary); letter-spacing: -0.5px;">Hello Manager! 👋</h4>
+        <h4 class="brand-text m-0 fw-bold d-block d-sm-none" style="color: var(--text-primary); letter-spacing: -0.5px;">Hi! 👋</h4>
       </div>
       <div class="header-actions">
         <div class="search-wrapper me-3 d-none d-lg-block" style="width: 250px;">

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isDarkMode = false;
   title = 'Student Management Dashboard';
   globalSearch: string = '';
+  isSidebarOpen = false;
 
   constructor(private router: Router) {}
 
@@ -47,5 +48,13 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/students'], { queryParams: { q: this.globalSearch } });
       this.globalSearch = ''; // Clear after search
     }
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
   }
 }
