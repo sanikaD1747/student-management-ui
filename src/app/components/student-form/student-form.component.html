@@ -1,0 +1,131 @@
+<div class="animate-fade-in mx-auto" style="max-width: 850px;">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold mb-1" style="color: var(--text-primary);">
+        {{ isEditMode ? 'Update Student Information' : 'Register New Student' }}
+      </h2>
+      <p class="text-secondary small mb-0">Fill in the form to {{ isEditMode ? 'modify' : 'add' }} the student details.
+      </p>
+    </div>
+    <a routerLink="/students" class="btn text-secondary fw-semibold bg-white shadow-sm action-btn"
+      style="width: auto; padding: 0.5rem 1.25rem;">
+      <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
+    </a>
+  </div>
+
+  <div class="card-custom">
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+      <div class="row g-4 mt-1">
+        <!-- Name -->
+        <div class="col-md-6">
+          <label for="name" class="form-label text-secondary">Full Legal Name <span class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent" style="border-right-color: transparent;"><i
+                class="bi bi-person ms-1"></i></span>
+            <input type="text" id="name" class="form-control" style="border-left-color: transparent;"
+              formControlName="name" placeholder="John Doe"
+              [ngClass]="{ 'border-danger text-danger': submitted && f['name'].errors }">
+          </div>
+          <div *ngIf="submitted && f['name'].errors" class="text-danger mt-1 small">
+            <div *ngIf="f['name'].errors['required']"><i class="bi bi-exclamation-circle me-1"></i>Name is required
+            </div>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="col-md-6">
+          <label for="age" class="form-label text-secondary">Age <span class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent" style="border-right-color: transparent;"><i
+                class="bi bi-calendar-event ms-1"></i></span>
+            <input type="number" id="age" class="form-control" style="border-left-color: transparent;"
+              formControlName="age" placeholder="21"
+              [ngClass]="{ 'border-danger text-danger': submitted && f['age'].errors }">
+          </div>
+          <div *ngIf="submitted && f['age'].errors" class="text-danger mt-1 small">
+            <div *ngIf="f['age'].errors['required']"><i class="bi bi-exclamation-circle me-1"></i>Age is required</div>
+            <div *ngIf="f['age'].errors['pattern']"><i class="bi bi-exclamation-circle me-1"></i>Must be a valid number
+            </div>
+            <div *ngIf="f['age'].errors['min'] || f['age'].errors['max']"><i
+                class="bi bi-exclamation-circle me-1"></i>Age should be between 5-100</div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-12">
+          <label for="email" class="form-label text-secondary">Personal Email Address <span
+              class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent" style="border-right-color: transparent;"><i
+                class="bi bi-envelope ms-1"></i></span>
+            <input type="email" id="email" class="form-control" style="border-left-color: transparent;"
+              formControlName="email" placeholder="example@domain.com"
+              [ngClass]="{ 'border-danger text-danger': submitted && f['email'].errors }">
+          </div>
+          <div *ngIf="submitted && f['email'].errors" class="text-danger mt-1 small">
+            <div *ngIf="f['email'].errors['required']"><i class="bi bi-exclamation-circle me-1"></i>Email is required
+            </div>
+            <div *ngIf="f['email'].errors['email']"><i class="bi bi-exclamation-circle me-1"></i>Please enter a valid
+              email format</div>
+          </div>
+        </div>
+
+        <!-- Course -->
+        <div class="col-md-6">
+          <label for="course" class="form-label text-secondary">Enrolled Course <span
+              class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent" style="border-right-color: transparent;"><i
+                class="bi bi-book ms-1"></i></span>
+            <select id="course" class="form-select" style="border-left-color: transparent;" formControlName="course"
+              [ngClass]="{ 'border-danger text-danger': submitted && f['course'].errors }">
+              <span class="input-group-text"><i class="bi flex"></i></span>
+              <option value="" disabled selected>Select course</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Finance">Finance</option>
+              <option value="Business Administration">Business Administration</option>
+              <option value="Arts">Arts</option>
+            </select>
+          </div>
+          <div *ngIf="submitted && f['course'].errors" class="text-danger mt-1 small">
+            <div *ngIf="f['course'].errors['required']"><i class="bi bi-exclamation-circle me-1"></i>Course selection is
+              required</div>
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="col-md-6">
+          <label for="city" class="form-label text-secondary">Current City <span class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent" style="border-right-color: transparent;"><i
+                class="bi bi-geo-alt ms-1"></i></span>
+            <input type="text" id="city" class="form-control" style="border-left-color: transparent;"
+              formControlName="city" placeholder="Current location"
+              [ngClass]="{ 'border-danger text-danger': submitted && f['city'].errors }">
+          </div>
+          <div *ngIf="submitted && f['city'].errors" class="text-danger mt-1 small">
+            <div *ngIf="f['city'].errors['required']"><i class="bi bi-exclamation-circle me-1"></i>City is required
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-4 d-flex gap-3 justify-content-end border-top"
+        style="border-color: var(--border-color) !important;">
+        <button type="button" routerLink="/students" class="btn text-secondary fw-semibold px-4 shadow-sm"
+          style="background: var(--bg-color); border-radius: 12px;">Cancel</button>
+        <button type="submit" class="btn text-white fw-bold px-4 shadow-sm"
+          style="background: var(--primary-color); border-radius: 12px;">
+          <i class="bi bi-cloud-arrow-up-fill me-2"></i> {{ isEditMode ? 'Update Data' : 'Submit Registration' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

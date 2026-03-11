@@ -1,0 +1,243 @@
+.student-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Header Card */
+.header-card {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.header-card mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+}
+
+.header-card mat-card-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-top: 8px;
+}
+
+.header-icon {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+}
+
+/* Actions Card */
+.actions-card {
+  margin-bottom: 24px;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  max-width: 600px;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-btn {
+  height: 56px;
+}
+
+.add-btn {
+  height: 56px;
+  font-size: 16px;
+}
+
+/* Table Card */
+.table-card {
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.student-table {
+  width: 100%;
+}
+
+/* Table Header */
+.student-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Table Cells */
+.student-table td {
+  padding: 16px;
+  font-size: 14px;
+}
+
+.student-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Student Name */
+.student-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.name-icon {
+  color: #667eea;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Email Link */
+.email-link {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Course Badge */
+.course-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* City Info */
+.city-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.city-icon {
+  color: #e91e63;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+/* No Data Row */
+.no-data {
+  text-align: center;
+  padding: 48px !important;
+  color: #999;
+}
+
+.no-data mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Paginator */
+mat-paginator {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Stats Card */
+.stats-card {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-item mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .student-list-container {
+    padding: 16px;
+  }
+
+  .actions-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-section {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .search-btn, .add-btn {
+    width: 100%;
+  }
+
+  .header-card mat-card-title {
+    font-size: 22px;
+  }
+}
